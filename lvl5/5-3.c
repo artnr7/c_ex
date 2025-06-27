@@ -5,21 +5,24 @@ int main() {
   size_t vec_size = 8;
   int *x = calloc(vec_size, sizeof(int));
 
-  int i = 0;
-  int num = 0;
-  while (num != -1) {
-    scanf("%d", num);
-    if (num >= 0) {
-      x[i++] = num;
-    }
+  size_t i = 0;
+  while (scanf("%d", &(x[i])) && x[i++] != -1) {
     if (i == vec_size - 1) {
       vec_size *= 2;
-      realloc(x, vec_size);
+      x = realloc(x, vec_size);
     }
   }
+  i -= 1;
 
-  for (int j = 0; j < i - 1; ++j) {
-    printf("%d %d ", x[j], x[i - 2 - j]);
+  for (size_t j = 0; j < i / 2; ++j) {
+    printf("%d %d", x[j], x[i - 1 - j]);
+    if (j < (i / 2) - 1) {
+      printf(" ");
+    }
+  }
+  if (i % 2 != 0) {
+    printf(" %d", x[i / 2]);
   }
   return 0;
 }
+// сложна

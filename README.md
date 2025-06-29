@@ -5,6 +5,10 @@
 ```c
 gcc -Wall -Werror -Wextra <путь/название_файла> -o main && ./main
 ```
+### Для строк
+```c
+gcc -Wall -Werror -Wextra <путь/название_файла> -o main && ./main < <имя_файла>
+```
 
 ### Теория
 

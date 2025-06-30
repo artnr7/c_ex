@@ -11,12 +11,7 @@ int main() {
 
   fgets(a, N, stdin);
 
-  int len = strlen(a);
-
-  if (a[len - 1] == '\n') {
-    a[len - 1] = '\0';
-    --len;
-  }
+  a[strcspn(a, "\n")] = '\0';
 
   int st = 0;
   char *ptr_b = b;

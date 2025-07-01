@@ -1,30 +1,35 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 #define N 1000
 
 int main() {
-  char *a = calloc(N, sizeof(char));
-  char *b = calloc(N, sizeof(char));
+  char s[N] = {};
+  char subs[N] = {};
 
-  fgets(a, N, stdin);
+  fgets(s, N, stdin);
+  fgets(subs, N, stdin);
 
-  a[strcspn(a, "\n")] = '\0';
+  s[strcspn(s, "\n")] = '\0';
+  subs[strcspn(subs, "\n")] = '\0';
 
-  fgets(b, N, stdin);
+  char *last_occur = NULL;
+  char *cur_occur = s;
 
-  printf("%s\n", a);
-  printf("%s", b);
+  int len_subs = strlen(subs);
 
-  int len_a = strlen(a);
-
-  if (a[len_a - 1] == '\n') {
-    a[len_a - 1] = '\0';
-    --len_a;
+  while ((cur_occur = strstr(cur_occur, subs)) != NULL) {
+    last_occur = cur_occur;
+    cur_occur += len_subs;
   }
 
-  free(a);
-  free(b);
+  if (last_occur != NULL) {
+    memmove(last_occur, last_occur + len_subs,
+            strlen(last_occur + len_subs) + 1);
+  }
+
+  printf("%s", s);
+
   return 0;
 }
+// не сложно, но нужна практика со string.h

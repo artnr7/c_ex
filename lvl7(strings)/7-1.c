@@ -15,8 +15,8 @@ int main() {
 
   int st = 0;
   char *ptr_b = b;
-  for (char *ptr_a = a; *ptr_a != '\0'; ++ptr_a) {
-    *ptr_b++ = *ptr_a;
+  for (char *ptr_a = a; *ptr_a != '\0'; ++ptr_a, ++ptr_b) {
+    *ptr_b = *ptr_a;
     while (*ptr_a == ' ') {
       ++ptr_a;
       st = 1;

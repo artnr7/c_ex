@@ -27,6 +27,10 @@ int main() {
       scanf("%d", &(b[i][j]));
     }
   }
+  char ch = getchar();
+  if (ch != '\n' && ch != EOF) {
+    exit(1);
+  }
 
   for (int i = 0; i < n; ++i) {
     for (int j = 0; j < n; ++j) {

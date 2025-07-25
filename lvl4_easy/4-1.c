@@ -1,14 +1,12 @@
 #include <stdio.h>
 
-int fact(int num) {
-  int res = 1;
-  if (num > 1) {
-    res = num;
-  }
+int f(int num) {
+  int res = num < 2 ? 1 : num;
 
-  for (int i = 1; i < num; ++i) {
+  for (int i = 2; i < num; ++i) {
     res *= i;
   }
+
   return res;
 }
 
@@ -17,7 +15,7 @@ int main() {
 
   if (scanf("%d", &n) && n >= 0) {
     for (int k = 0; k <= n; ++k) {
-      printf("%d", (fact(n) / (fact(k) * fact(n - k))));
+      printf("%d", (f(n) / (f(k) * f(n - k))));
       if (k < n) {
         printf(" ");
       }
@@ -28,3 +26,4 @@ int main() {
   }
   return 0;
 }
+// c = n! / k! (n - k)!

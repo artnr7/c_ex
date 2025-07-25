@@ -1,14 +1,12 @@
 #include <stdio.h>
 
 int main() {
-  int num = 0, max = 0;
-  if (scanf("%d", &num)) {
+  int n = 0, max = 0;
+  if (scanf("%d", &n)) {
 
-    while (num != 0) {
-      if (num % 10 > max) {
-        max = num % 10;
-      }
-      num /= 10;
+    while (n != 0) {
+      max = n % 10 > max ? n % 10 : max;
+      n /= 10;
     }
     printf("%d", max);
   } else {

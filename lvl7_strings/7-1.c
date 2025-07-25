@@ -31,10 +31,7 @@ int main() {
 
   if (b[len_b - 1] == ' ') {
     b[len_b - 1] = '\0';
-  } else {
-    b[len_b] = '\0';
   }
-
   printf("%s", b);
 
   free(a);

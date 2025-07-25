@@ -18,6 +18,7 @@ int main() {
   fgets(s, N, stdin);
 
   int len_s = strlen(s), r = len_s - 1, pol = 1;
+  // сомнительно
 
   if (s[r] == '\n') {
     --r;

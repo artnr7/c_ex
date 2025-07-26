@@ -9,6 +9,7 @@ int main() {
 
   scanf("%255s", f_name);
 
+  
   FILE *file = fopen(f_name, 'r');
 
   if (!file) {
